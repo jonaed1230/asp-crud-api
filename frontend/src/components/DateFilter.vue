@@ -1,7 +1,11 @@
-
 <template>
   <div class="arrange-date">
-    <input class="date-checkbox" type="checkbox" v-model="filterDate" @change="arrangeDate" />
+    <input
+      class="date-checkbox"
+      type="checkbox"
+      v-model="filterDate"
+      @change="arrangeDate"
+    />
     <span>Arrange by date</span>
   </div>
 </template>
@@ -13,17 +17,27 @@ export default {
     // check the filter_date query param and set the filterDate property to true if it is not set to true
     let filterDate = router?.currentRoute?.value?.query?.filter_date;
     const arrangeDate = () => {
+      const mediaType = router?.currentRoute?.value?.query?.type;
       filterDate = filterDate === "true" ? "false" : "true";
       // change the query param on every click on the checkbox
-      router.push({
-        query: {
-          filter_date: `${filterDate}`,
-        }
-      })
-    }
+      if (mediaType) {
+        router.push({
+          query: {
+            filter_date: `${filterDate}`,
+            type: mediaType,
+          },
+        });
+      } else {
+        router.push({
+          query: {
+            filter_date: `${filterDate}`,
+          },
+        });
+      }
+    };
     return {
       filterDate,
-      arrangeDate
+      arrangeDate,
     };
   },
 };

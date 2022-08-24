@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import MediaPage from "@/components/MediaPage.vue";
 </script>
 
 <template>
   <main>
-    <MediaPage />
+    Hello world
   </main>
 </template>

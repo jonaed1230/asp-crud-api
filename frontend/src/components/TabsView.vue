@@ -1,26 +1,26 @@
 <script lang="ts">
-import Files from "./components/TabsView.vue";
-import SystemInfo from "./views/HomeView.vue";
-import About from "./views/AboutView.vue";
+import Media from "./MediaPage.vue";
+import Home from "./HomeVue.vue";
+import About from "./AboutVue.vue";
 
 export default {
   components: {
-    Files,
-    SystemInfo,
+    Media,
+    Home,
     About,
   },
-    // define and export multiple tabs and remember always name your tabs the way you imported it.
+  // define and export multiple tabs and remember always name your tabs the way you imported it.
   data() {
     return {
-      currentTab: "Files",
+      currentTab: "Media",
       tabs: [
         {
-          name: "SystemInfo",
-          component: SystemInfo,
+          name: "Home",
+          component: Home,
         },
         {
-          name: "Files",
-          component: Files,
+          name: "Media",
+          component: Media,
         },
         {
           name: "About",
